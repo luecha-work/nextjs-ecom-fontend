@@ -1,0 +1,38 @@
+.profileIcon {
+  border-radius: 50%;
+  width: 10.7rem;
+  height: 10.7rem;
+}
+
+.profileIconImage {
+  position: absolute;
+  bottom: 0.1rem;
+  right: 0.5rem;
+  color: black;
+}
+
+.profileImage {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.profileIconButton {
+  /* color: blue; */
+}
+
+.profileContainer {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+}
+
+.icon {
+  /* width: 4rem;
+    height: 4rem; */
+  border-radius: 50%;
+  background-color: #d8d8d8;
+  padding: 0.4rem;
+  color: #3b3636;
+  margin: 0rem;
+}

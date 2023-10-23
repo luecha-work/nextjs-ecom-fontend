@@ -1,0 +1,140 @@
+.header {
+  padding: 0rem 5rem 0rem 5rem;
+  background-color: #b1b1b1;
+  justify-content: center;
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  padding: 0rem 1rem;
+  font-family: "Open Sans", "Lato", sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #919191;
+  border-radius: 30px;
+  background-color: #9b9090;
+}
+
+.logoPhone {
+  font-size: 1.5rem;
+  padding: 0.2rem 0.5rem;
+  font-family: "Open Sans", "Lato", sans-serif;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #919191;
+  border-radius: 30px;
+  background-color: #9b9090;
+}
+
+.logoBig {
+  font-size: 2.5rem;
+  color: black;
+  font-family: "Open Sans", "Lato", sans-serif;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 10px;
+}
+
+.logoBigPhone {
+  font-size: 1.3rem;
+  color: black;
+  font-family: "Open Sans", "Lato", sans-serif;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 10px;
+}
+
+.logoSmall {
+  font-size: 1.8rem;
+  color: white;
+  font-family: "Open Sans", "Lato", sans-serif;
+  height: 100%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 10px;
+}
+
+.logoSmallPhone {
+  font-size: 1rem;
+  color: white;
+  font-family: "Open Sans", "Lato", sans-serif;
+  height: 100%;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 10px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: #313131;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #1a1919;
+  font-size: 1rem;
+}
+
+.settings a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #1a1919;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .settings a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #1a1919;
+  }
+
+  .navigation a {
+    margin: 0px 0px 0px 10px;
+    font-size: 1.5rem;
+  }
+}
+
+.navBarIcon {
+  color: #050505;
+  padding: 0;
+  height: 3rem;
+  width: 3rem;
+  background-color: #aa9b9b;
+}
+
+.settingIcon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.menuBarTitle {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}

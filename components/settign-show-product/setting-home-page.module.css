@@ -1,0 +1,24 @@
+.homeNonLoggedinPageBody {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.textComment {
+  color: brown;
+  margin: 0rem;
+}
+
+.labelFontSize {
+  font-size: 16px;
+}
+
+.btnStyle {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Open Sans", "Lato", sans-serif;
+}

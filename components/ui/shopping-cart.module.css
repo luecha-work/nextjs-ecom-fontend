@@ -1,0 +1,34 @@
+.imgStyle {
+  width: 110px;
+  height: 110px;
+  border-radius: 0.5rem;
+}
+
+.formControlStyle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  height: 7rem;
+  /* border-bottom: 1px solid #e0e0e0; */
+}
+
+.amountOrderContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 1.5rem;
+}
+.amountOfOrder {
+  background-color: #81d4fa;
+  width: 3rem;
+}
+
+.shoppingIcon {
+  color: #050505;
+  padding: 0rem;
+  height: 3rem;
+  width: 3rem;
+  background-color: #aa9b9b;
+}

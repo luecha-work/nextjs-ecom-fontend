@@ -1,0 +1,12 @@
+.textContent{
+  padding: 0.1rem;
+  margin: 0.3rem;
+  font-size: 17px;
+}
+
+.textContentValue{
+  padding: 0.1rem;
+  margin: 0.3rem;
+  font-size: 17px;
+  background-color: #dbd3d3;
+}

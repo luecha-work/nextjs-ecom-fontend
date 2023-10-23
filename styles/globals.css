@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", "Lato", sans-serif;
+  color: #414141;
+  background-color: #f7f6f6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", "Lato", sans-serif;
+  color: #2b2b2b;
+}
+
+p {
+  font-family: "Open Sans", "Lato", sans-serif;
+  color: #2b2b2b;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.loginContent {
+  width: 90%;
+  max-width: 40rem;
+  margin: 5rem auto;
+}
+
+.titlePages {
+  font-family: "Open Sans", "Lato", sans-serif;
+  color: #414141;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.optionsTitle {
+  font-family: "Open Sans", "Lato", sans-serif;
+  color: #414141;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.orderHeaderTable {
+  font-size: 1rem;
+  font-family: "Open Sans", "Lato", sans-serif;
+}
+
+.profileContainer {
+  margin-bottom: 1rem;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+
+.profileImage {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}
+
+.profilePageImage {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.profileIconImage {
+  position: absolute;
+  bottom: 0rem;
+  right: 0rem;
+  color: black;
+  /* font-size: 50px; */
+}
+
+.addingProductBtn {
+  width: 100%;
+  font-size: 16px;
+  font-family: "Open Sans", "Lato", sans-serif;
+}
+
+.line-chart-container {
+  background-color: black;
+}
+
+.line-chart-container svg {
+  background-color: white;
+}
+
+.forgot-password-btn {
+  width: 10rem;
+  font-size: 1rem;
+  font-family: "Open Sans", "Lato", sans-serif;
+}
+
+.video_player {
+  margin: 2rem 2rem 2rem 2rem;
+}
+
+.video_player video {
+  outline: none;
+}

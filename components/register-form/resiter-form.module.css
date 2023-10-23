@@ -1,0 +1,82 @@
+.profileContent {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.ButtonActions {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.content {
+  margin-top: 2rem;
+  /* margin-bottom: 2rem; */
+}
+
+.contentGrid {
+  /* padding-left: 8%;
+    padding-right: 8%; */
+  display: inline-flexbox;
+  justify-items: center;
+}
+
+.datePicker {
+  background-color: white;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.labelInputContent {
+  color: black;
+  margin-bottom: 0.2rem;
+}
+
+.selectGenderContent {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+}
+
+/* .selectAddressContent {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: white;
+} */
+
+.textField {
+  width: 100%;
+  background-color: white;
+}
+
+.textarea {
+  resize: none;
+  /* overflow-y: hidden;  */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  height: 7rem;
+  width: 100%;
+}
+
+.p {
+  background-image: linear-gradient(to bottom, transparent 50%, black 50%);
+  background-size: 2px 1em; /* 2px เป็นความหนาของเส้น, 1em เป็นความยาวของเส้น */
+  background-repeat: no-repeat;
+  padding: 5px;
+}
+
+.img {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  object-fit: cover;
+  margin-right: 10px;
+  /* height: 10rem; */
+}

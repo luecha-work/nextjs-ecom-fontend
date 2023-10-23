@@ -1,0 +1,8 @@
+.worningMessage {
+    padding: 0px;
+    margin: 0px 0px 5px 0px;
+    color: red;
+    font-size: 15px;
+    /* opacity: 0; */
+    animation: fadeInOut 2s infinite alternate;
+}

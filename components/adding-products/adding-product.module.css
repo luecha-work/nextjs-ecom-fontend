@@ -1,0 +1,48 @@
+.labelTitleContent {
+  color: black;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.textFieldContent {
+  background-color: white;
+  width: 100%;
+}
+
+.textarea {
+  resize: none;
+  /* overflow-y: hidden;  */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  height: 7rem;
+  width: 100%;
+}
+
+.datePicker {
+  width: 100%;
+  background-color: white;
+}
+
+.profileIconImage {
+  position: absolute;
+  bottom: 0.1rem;
+  right: 0.5rem;
+  color: black;
+}
+
+.icon {
+  /* width: 4rem;
+    height: 4rem; */
+  border-radius: 50%;
+  /* background-color: #ef5350; */
+  padding: 0.1rem;
+  color: #c62828;
+  margin: 0rem;
+}
+
+.imgContainer {
+  position: relative;
+  width: 20rem;
+  height: 10rem;
+}
