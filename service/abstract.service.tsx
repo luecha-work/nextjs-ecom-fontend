@@ -1,5 +1,5 @@
 class AbstractService {
-  base_url: string = "http://localhost:1000/api";
+  base_url: string = "https://nestjs-ecom-backend.onrender.com/api";
 
   options = {
     withCredentials: true,
