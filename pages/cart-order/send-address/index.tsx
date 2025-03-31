@@ -214,6 +214,7 @@ const SendAddress: NextPage<ShowProductDetailProp> = ({ stepDataProduct, stepAdd
                   }}>
                   {stepAddress.map((item: any, index: number) => (
                     <Button
+                      key={index}
                       endIcon={numberItem === index ? <CheckIcon sx={{ color: "red" }} /> : <></>}
                       onClick={() => selectAddresBtn(item, index)}
                       sx={{

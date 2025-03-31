@@ -1,26 +1,26 @@
-import { NextPage } from "next";
+import craeteTransferDatetime from "@/common/class/craete-transfer-datetimd";
+import { useStore } from "@/common/class/stateManagement";
+import { MetaModel } from "@/common/models/base-result.imterface";
+import { OrdersModel } from "@/common/models/orders-result.interface";
+import EditOrderStatusModal from "@/components/ui/change-order-status-modal";
+import DeleteOrderModal from "@/components/ui/delete-order-modal";
+import SearchInput from "@/components/ui/search-input";
+import { OrdersService } from "@/service/order.service";
+import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
+import { Button, Stack, TableFooter } from "@mui/material";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { ChangeEvent, Fragment, useEffect, useState } from "react";
-import SearchInput from "@/components/ui/search-input";
-import { styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { OrdersService } from "@/service/order.service";
-import { OrdersModel } from "@/common/models/orders-result.interface";
-import { Button, CircularProgress, Stack, TableFooter } from "@mui/material";
-import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
-import EditOrderStatusModal from "@/components/ui/change-order-status-modal";
+import { styled } from "@mui/material/styles";
+import { NextPage } from "next";
 import router from "next/router";
-import { useStore } from "@/common/class/stateManagement";
-import craeteTransferDatetime from "@/common/class/craete-transfer-datetimd";
-import { MetaModel } from "@/common/models/base-result.imterface";
-import DeleteOrderModal from "@/components/ui/delete-order-modal";
+import { ChangeEvent, useEffect, useState } from "react";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -44,7 +44,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const OrdersCheckPayment: NextPage = () => {
   const ordersService = new OrdersService();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const isLoading_status = useStore((state) => state.spin_status);
 
   const [searchValue, setSearchValue] = useState("");
@@ -152,231 +152,212 @@ const OrdersCheckPayment: NextPage = () => {
   }, []);
 
   return (
-    <Fragment>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} columns={16}>
-          <Grid item xs={1}></Grid>
-          <Grid item xs={14}>
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              flexDirection="row"
-              alignItems="center"
-            >
-              <Box flexGrow={0}>
-                <p className="titlePages">สินค้ารอการอนุมัติ</p>
-              </Box>
-              <Box flexGrow={0} width={"30%"}>
-                <SearchInput
-                  handleInputChange={handleInputChange}
-                  title={`ค้นหารายชื่อผู้รับ/เบอร์โทร`}
-                  searchValue={searchValue}
-                />
-              </Box>
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2} columns={16}>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={14}>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            flexDirection="row"
+            alignItems="center"
+          >
+            <Box flexGrow={0}>
+              <p className="titlePages">สินค้ารอการอนุมัติ</p>
             </Box>
-          </Grid>
-          <Grid item xs={1}></Grid>
+            <Box flexGrow={0} width={"30%"}>
+              <SearchInput
+                handleInputChange={handleInputChange}
+                title={`ค้นหารายชื่อผู้รับ/เบอร์โทร`}
+                searchValue={searchValue}
+              />
+            </Box>
+          </Box>
         </Grid>
-        <Grid container spacing={2} columns={16} mt={1}>
-          <Grid item xs={1}></Grid>
-          <Grid item xs={14}>
-            <Box display="flex" flexDirection="row" alignItems="center">
-              <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                  <TableHead>
-                    <TableRow>
+        <Grid item xs={1}></Grid>
+      </Grid>
+      <Grid container spacing={2} columns={16} mt={1}>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={14}>
+          <Box display="flex" flexDirection="row" alignItems="center">
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                <TableHead>
+                  <TableRow>
+                    <StyledTableCell
+                      align="center"
+                      className="orderHeaderTable"
+                    >
+                      คำสั่งซื้อ
+                    </StyledTableCell>
+                    <StyledTableCell align="left" className="orderHeaderTable">
+                      หมายเลขคำสั่งซื้อ
+                    </StyledTableCell>
+                    <StyledTableCell align="left" className="orderHeaderTable">
+                      ผู้รับ
+                    </StyledTableCell>
+                    <StyledTableCell align="left" className="orderHeaderTable">
+                      เบอร์โทร
+                    </StyledTableCell>
+                    <StyledTableCell
+                      align="center"
+                      className="orderHeaderTable"
+                    >
+                      วัน-เวลาที่สั่งซื้อ
+                    </StyledTableCell>
+                    <StyledTableCell
+                      align="center"
+                      className="orderHeaderTable"
+                    >
+                      สถานะ
+                    </StyledTableCell>
+                    <StyledTableCell
+                      align="center"
+                      className="orderHeaderTable"
+                    >
+                      action
+                    </StyledTableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {orderData?.map((row, index) => (
+                    <StyledTableRow
+                      key={(index + rowsIndex.currentIndex).toString()}
+                    >
+                      <StyledTableCell
+                        component="th"
+                        scope="row"
+                        align="center"
+                      >
+                        {index + rowsIndex.currentIndex}
+                      </StyledTableCell>
+                      <StyledTableCell component="th" scope="row" align="left">
+                        {row.orderCode ? row.orderCode : "-"}
+                      </StyledTableCell>
+                      <StyledTableCell align="left">
+                        {row.recipient ? row.recipient : "-"}
+                      </StyledTableCell>
+                      <StyledTableCell align="left">
+                        {row.phoneNumber ? row.phoneNumber : "-"}
+                      </StyledTableCell>
+                      <StyledTableCell align="center">
+                        {orderData?.[0].createAt
+                          ? craeteTransferDatetime(row.createAt.toString())
+                          : "-"}
+                      </StyledTableCell>
                       <StyledTableCell
                         align="center"
-                        className="orderHeaderTable"
+                        style={{
+                          color:
+                            row.orderStatus.orderStatusName !==
+                            "รอยืนยันคำสั่งซื้อ"
+                              ? row.orderStatus.orderStatusName ===
+                                  "เก็บเงินปลายทาง" ||
+                                row.orderStatus.orderStatusName === "ชำระสำเร็จ"
+                                ? "green"
+                                : "red"
+                              : "red",
+                        }}
                       >
-                        คำสั่งซื้อ
+                        {row.orderStatus.orderStatusName
+                          ? row.orderStatus.orderStatusName
+                          : "-"}
                       </StyledTableCell>
-                      <StyledTableCell
-                        align="left"
-                        className="orderHeaderTable"
-                      >
-                        หมายเลขคำสั่งซื้อ
-                      </StyledTableCell>
-                      <StyledTableCell
-                        align="left"
-                        className="orderHeaderTable"
-                      >
-                        ผู้รับ
-                      </StyledTableCell>
-                      <StyledTableCell
-                        align="left"
-                        className="orderHeaderTable"
-                      >
-                        เบอร์โทร
-                      </StyledTableCell>
-                      <StyledTableCell
-                        align="center"
-                        className="orderHeaderTable"
-                      >
-                        วัน-เวลาที่สั่งซื้อ
-                      </StyledTableCell>
-                      <StyledTableCell
-                        align="center"
-                        className="orderHeaderTable"
-                      >
-                        สถานะ
-                      </StyledTableCell>
-                      <StyledTableCell
-                        align="center"
-                        className="orderHeaderTable"
-                      >
-                        action
-                      </StyledTableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {orderData?.map((row, index) => (
-                      <StyledTableRow
-                        key={(index + rowsIndex.currentIndex).toString()}
-                      >
-                        <StyledTableCell
-                          component="th"
-                          scope="row"
-                          align="center"
-                        >
-                          {index + rowsIndex.currentIndex}
-                        </StyledTableCell>
-                        <StyledTableCell
-                          component="th"
-                          scope="row"
-                          align="left"
-                        >
-                          {row.orderCode ? row.orderCode : "-"}
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          {row.recipient ? row.recipient : "-"}
-                        </StyledTableCell>
-                        <StyledTableCell align="left">
-                          {row.phoneNumber ? row.phoneNumber : "-"}
-                        </StyledTableCell>
-                        <StyledTableCell align="center">
-                          {orderData?.[0].createAt
-                            ? craeteTransferDatetime(row.createAt.toString())
-                            : "-"}
-                        </StyledTableCell>
-                        <StyledTableCell
-                          align="center"
-                          style={{
-                            color:
-                              row.orderStatus.orderStatusName !==
-                              "รอยืนยันคำสั่งซื้อ"
-                                ? row.orderStatus.orderStatusName ===
-                                    "เก็บเงินปลายทาง" ||
-                                  row.orderStatus.orderStatusName ===
-                                    "ชำระสำเร็จ"
-                                  ? "green"
-                                  : "red"
-                                : "red",
-                          }}
-                        >
-                          {row.orderStatus.orderStatusName
-                            ? row.orderStatus.orderStatusName
-                            : "-"}
-                        </StyledTableCell>
-                        <StyledTableCell
-                          align="center"
-                          style={{ width: "35%" }}
-                        >
-                          <Stack
-                            direction="row"
-                            spacing={2}
-                            sx={{
-                              display: "flex",
-                              justifyContent: "center",
-                            }}
-                          >
-                            <Button
-                              variant="contained"
-                              color="primary"
-                              startIcon={<ContentPasteSearchOutlinedIcon />}
-                              onClick={() => {
-                                handleClickOrderDetail(row?.id);
-                              }}
-                            >
-                              รายละเอียด
-                            </Button>
-                            <EditOrderStatusModal
-                              orderId={row.id}
-                              orderStatusProps={row.orderStatus}
-                              reloadOrders={reloadOrders}
-                            />
-
-                            <DeleteOrderModal
-                              orderId={row.id}
-                              orderStatusProps={row.orderStatus}
-                              reloadOrders={reloadOrders}
-                            />
-                          </Stack>
-                        </StyledTableCell>
-                      </StyledTableRow>
-                    ))}
-                  </TableBody>
-                  <TableFooter>
-                    <TableRow style={{ justifyContent: "space-between" }}>
-                      <TableCell colSpan={2} style={{ paddingRight: 0 }}>
-                        <p style={{ fontSize: 14 }}>
-                          number of rows: {meta?.total}
-                        </p>
-                      </TableCell>
-                      <TableCell
-                        colSpan={6}
-                        align="right"
-                        style={{ paddingLeft: 0 }}
-                      >
+                      <StyledTableCell align="center" style={{ width: "35%" }}>
                         <Stack
                           direction="row"
-                          spacing={1}
-                          marginY={1}
-                          alignItems="center"
-                          justifyContent="flex-end"
+                          spacing={2}
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                          }}
                         >
                           <Button
-                            size="medium"
-                            style={{ margin: "0px" }}
-                            onClick={handleProViousPage}
-                          >
-                            Previous
-                          </Button>
-                          <span
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              margin: "0rem 0.8rem",
+                            variant="contained"
+                            color="primary"
+                            startIcon={<ContentPasteSearchOutlinedIcon />}
+                            onClick={() => {
+                              handleClickOrderDetail(row?.id);
                             }}
                           >
-                            <p
-                              style={{
-                                fontSize: 14,
-                              }}
-                            >
-                              {meta?.page}
-                            </p>
-                          </span>
-                          <Button
-                            size="medium"
-                            style={{ margin: "0px" }}
-                            onClick={handleNextPage}
-                          >
-                            Next
+                            รายละเอียด
                           </Button>
+                          <EditOrderStatusModal
+                            orderId={row.id}
+                            orderStatusProps={row.orderStatus}
+                            reloadOrders={reloadOrders}
+                          />
+
+                          <DeleteOrderModal
+                            orderId={row.id}
+                            orderStatusProps={row.orderStatus}
+                            reloadOrders={reloadOrders}
+                          />
                         </Stack>
-                      </TableCell>
-                    </TableRow>
-                  </TableFooter>
-                </Table>
-              </TableContainer>
-            </Box>
-          </Grid>
-          <Grid item xs={1}></Grid>
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))}
+                </TableBody>
+                <TableFooter>
+                  <TableRow style={{ justifyContent: "space-between" }}>
+                    <TableCell colSpan={2} style={{ paddingRight: 0 }}>
+                      <p style={{ fontSize: 14 }}>
+                        number of rows: {meta?.total}
+                      </p>
+                    </TableCell>
+                    <TableCell
+                      colSpan={6}
+                      align="right"
+                      style={{ paddingLeft: 0 }}
+                    >
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        marginY={1}
+                        alignItems="center"
+                        justifyContent="flex-end"
+                      >
+                        <Button
+                          size="medium"
+                          style={{ margin: "0px" }}
+                          onClick={handleProViousPage}
+                        >
+                          Previous
+                        </Button>
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            margin: "0rem 0.8rem",
+                          }}
+                        >
+                          <p
+                            style={{
+                              fontSize: 14,
+                            }}
+                          >
+                            {meta?.page}
+                          </p>
+                        </span>
+                        <Button
+                          size="medium"
+                          style={{ margin: "0px" }}
+                          onClick={handleNextPage}
+                        >
+                          Next
+                        </Button>
+                      </Stack>
+                    </TableCell>
+                  </TableRow>
+                </TableFooter>
+              </Table>
+            </TableContainer>
+          </Box>
         </Grid>
-      </Box>
-    </Fragment>
+        <Grid item xs={1}></Grid>
+      </Grid>
+    </Box>
   );
 };
 

@@ -1,14 +1,14 @@
-import { OrdersService } from "@/service/order.service";
-import { Box, Button, Grid } from "@mui/material";
-import { NextPage } from "next";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import convertIsoToLocalDateTime from "@/common/class/convert-datetime-local";
+import { OrderDetailModel } from "@/common/models/orders-result.interface";
+import DetailsAtEnd from "@/components/order-detail/details-at-end";
 import OrderProductProfile from "@/components/order-detail/order-product-profile";
 import OrderTransfer from "@/components/order-detail/order-transfer";
 import ButtonBack from "@/components/ui/button-back";
-import DetailsAtEnd from "@/components/order-detail/details-at-end";
-import convertIsoToLocalDateTime from "@/common/class/convert-datetime-local";
-import { OrderDetailModel } from "@/common/models/orders-result.interface";
+import { OrdersService } from "@/service/order.service";
+import { Box, Grid } from "@mui/material";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const OrderDetails: NextPage = () => {
   const router = useRouter();
@@ -53,7 +53,6 @@ const OrderDetails: NextPage = () => {
       orderDetails?.parcelDelivery.deliveryDate !== null &&
       orderDetails?.parcelDelivery.deliveryDate !== undefined
     ) {
-
       const { formattedLocalDate, formattedLocalTime } =
         convertIsoToLocalDateTime(
           orderDetails?.parcelDelivery.deliveryDate.toString()

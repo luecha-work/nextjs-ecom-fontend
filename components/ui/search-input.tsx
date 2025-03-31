@@ -1,7 +1,7 @@
-import { InputBase, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { InputBase, Paper } from "@mui/material";
 import { NextPage } from "next";
-import { ChangeEventHandler, ReactNode } from "react";
+import { ChangeEventHandler } from "react";
 
 interface SearchInputProps {
   handleInputChange?: ChangeEventHandler<

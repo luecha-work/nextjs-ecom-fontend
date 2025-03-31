@@ -109,6 +109,7 @@ const SendPayment: NextPage<ShowProductDetailProp> = ({ stepDataProduct, setSend
                     <RadioGroup aria-labelledby="demo-radio-buttons-group-label" name="radio-buttons-group">
                       {paymentData?.map((item, index) => (
                         <FormControlLabel
+                          key={item?.id}
                           value={item?.id}
                           color="default"
                           control={<Radio />}
